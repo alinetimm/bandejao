@@ -1,0 +1,30 @@
+#testimonials {
+    padding: 2rem;
+    background-color: #fff6f0; /* laranja bem claro */
+    color: #333;
+    text-align: center;
+  }
+  
+  #testimonials h2 {
+    font-size: 2rem;
+    color: #e76f51; /* laranja escuro */
+    margin-bottom: 1.5rem;
+  }
+  
+  #testimonials blockquote {
+    font-style: italic;
+    background-color: #f2f2f2; /* cinza claro */
+    border-left: 5px solid #e76f51;
+    margin: 1rem auto;
+    max-width: 700px;
+    padding: 1rem;
+    color: #555;
+  }
+  
+  #testimonials cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #888;
+  }
+  
