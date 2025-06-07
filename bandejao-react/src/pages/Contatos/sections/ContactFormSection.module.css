@@ -1,0 +1,154 @@
+/* src/pages/Contatos/sections/ContactFormSection.module.css */
+.contactFormSection {
+    padding: 80px 50px;
+    background-color: #333; /* Fundo escuro como no Figma */
+    color: white;
+    margin-top: 80px; /* Para dar espaço ao Navbar fixo */
+  }
+  
+  .contentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px; /* Espaço maior entre as colunas */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .infoColumn {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+  }
+  
+  .infoTitle {
+    font-size: 2.2em;
+    color: #ff9900;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .infoText {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+  
+  .contactItem {
+    font-size: 1.1em;
+    color: white;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .icon {
+    font-size: 1.2em;
+    color: #ff9900; /* Cor dos ícones */
+  }
+  
+  .formColumn {
+    flex: 2;
+    min-width: 400px;
+    background-color: #444; /* Fundo do formulário no Figma */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .formRow {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .inputField,
+  .textareaField {
+    background-color: #555;
+    border: 1px solid #666;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    width: 100%; /* Por padrão, ocupa 100% da linha */
+  }
+  
+  .inputField::placeholder,
+  .textareaField::placeholder {
+    color: #aaa;
+  }
+  
+  .inputField:focus,
+  .textareaField:focus {
+    outline: none;
+    border-color: #ff9900;
+    box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.3);
+  }
+  
+  .formRow .inputField {
+    flex: 1; /* Permite que os campos na linha dividam o espaço */
+    min-width: 180px; /* Largura mínima para quebrar a linha */
+  }
+  
+  .textareaField {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 120px;
+  }
+  
+  .submitButton {
+    background-color: #ff9900;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-end; /* Alinha o botão à direita */
+  }
+  
+  .submitButton:hover {
+    background-color: #e68a00;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 992px) {
+    .contentWrapper {
+      flex-direction: column;
+      gap: 40px;
+    }
+  
+    .infoColumn, .formColumn {
+      min-width: unset;
+      width: 100%;
+    }
+  
+    .infoColumn {
+      text-align: center;
+    }
+  
+    .contactItem {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .formRow {
+      flex-direction: column; /* Empilha os campos em telas muito pequenas */
+      gap: 15px;
+    }
+  
+    .formColumn {
+      padding: 25px;
+    }
+  }

@@ -1,0 +1,27 @@
+
+.aboutHeroSection {
+    background-color: #333; /* Cor de fundo do Figma para o cabeçalho de seção */
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+    margin-top: 80px; /* Para dar espaço ao Navbar fixo */
+  }
+  
+  .title {
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* Media Queries para Responsividade */
+  @media (max-width: 768px) {
+    .aboutHeroSection {
+      padding: 30px 15px;
+      margin-top: 60px;
+    }
+  
+    .title {
+      font-size: 2.2em;
+    }
+  }

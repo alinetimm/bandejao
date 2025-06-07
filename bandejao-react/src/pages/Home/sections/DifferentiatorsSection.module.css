@@ -1,0 +1,60 @@
+/* src/pages/Home/sections/DifferentiatorsSection.module.css */
+.differentiatorsSection {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: white;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 60px;
+  }
+  
+  .contentGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px; 
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .differentiatorItem {
+    display: flex;
+    align-items: flex-start; 
+    text-align: left;
+    gap: 15px; 
+  }
+  
+  .bulletPoint {
+    min-width: 20px; 
+    height: 20px;
+    background-color: #ff9900; 
+    border-radius: 50%;
+    margin-top: 5px; 
+    flex-shrink: 0; 
+  }
+  
+  .differentiatorItem p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Media Queries para Responsividade */
+  @media (max-width: 768px) {
+    .contentGrid {
+      grid-template-columns: 1fr; 
+    }
+  
+    .differentiatorItem {
+    justify-content: center; 
+      text-align: center;
+    }
+  
+    .differentiatorItem p {
+      text-align: left; 
+      max-width: 80%; 
+      margin: 0 auto;
+    }
+  }
