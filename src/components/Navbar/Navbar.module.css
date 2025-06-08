@@ -8,6 +8,7 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 82px;
 }
 
 .logoContainer {
@@ -15,7 +16,6 @@
 }
 
 .navlinks {
-  list-style: none;
   display: flex;
   width: 100%;
   justify-content: flex-start;
