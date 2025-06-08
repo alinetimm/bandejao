@@ -15,6 +15,7 @@ const config = {
         mono: ["var(--font-mono)"],
       },
       colors: {
+        orange: "#FFC6B3",
         primary: {
           DEFAULT: "#F66922",
         },

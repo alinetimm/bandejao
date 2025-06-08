@@ -10,7 +10,7 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex flex-col h-screen bg-primary">
+    <div className="relative flex flex-col">
       <Head />
       <Navbar />
       <main className="mx-auto flex-grow ">{children}</main>
@@ -21,8 +21,8 @@ export default function DefaultLayout({
           href="https://www.heroui.com"
           title="heroui.com homepage"
         >
-          <span className="text-default-600">Powered by</span>
-          <p className="text-primary">HeroUI</p>
+          <span className="text-default-600">Produzido por</span>
+          <p className="text-primary">Aline y Ulian</p>
         </Link>
       </footer>
     </div>
