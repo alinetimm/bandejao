@@ -1,14 +1,12 @@
 // src/pages/Home/sections/HeroSection.jsx
-import React from 'react';
-import styles from './HeroSection.module.css'; 
-import HeroBackground from '../../../assets/images/Rectangle.png';
+import styles from "./HeroSection.module.css";
 
 function HeroSection() {
   return (
     <section className={styles.heroSection}>
       <div className={styles.heroContent}>
         <img
-          src="/assets/icons/Vector.png" 
+          src="/assets/icons/Logo.png"
           alt="Bandejão Logo"
           className={styles.logo}
         />
