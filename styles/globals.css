@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Altura da navbar sticky (Figma: 82px no desktop) */
+  --header-h: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 82px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Foco visível padrão (teclado): laranja contrasta com o fundo branco e com o escuro.
+   Componentes sobre fundo laranja (navbar) usam anel branco próprio. */
+:focus-visible {
+  outline: 3px solid #f66922;
+  outline-offset: 2px;
+}

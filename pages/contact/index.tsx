@@ -1,12 +1,18 @@
-import DefaultLayout from "@/layouts/default";
+import { ContactBlock } from "@/components/layout/ContactBlock";
+import { PageLayout } from "@/components/layout/PageLayout";
 
-// Página provisória — conteúdo real em fases seguintes (ver CLAUDE.md §6).
+// Figma "Contatos" (126:168): só o bloco de contato em destaque, sem repetir no rodapé.
 export default function ContactPage() {
   return (
-    <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <h1 className="text-4xl font-bold text-ink">Contato</h1>
-      </section>
-    </DefaultLayout>
+    <PageLayout
+      // Página curta: o fundo escuro cobre a tela toda em monitores altos
+      description="Fale com o Bandejão Refeições: unidades em Pelotas e Rio Grande e formulário para solicitar um orçamento."
+      mainClassName="bg-surface-dark"
+      showContactBlock={false}
+      title="Contato"
+    >
+      <h1 className="sr-only">Contato</h1>
+      <ContactBlock variant="page" />
+    </PageLayout>
   );
 }

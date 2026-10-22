@@ -1,6 +1,12 @@
 # Conteúdo do site — transcrito do Figma
 
 Referência de textos e estrutura de cada página. **Se houver divergência, o Figma vence** (ler via Figma MCP).
+Os textos em uso no site ficam em `content/*.ts`; este documento descreve o conteúdo e as decisões.
+
+> **Atualizado na Fase 7** com o que mudou por seguir o Figma (desktop e frames mobile "Android").
+> Resumo das mudanças: galeria com **8 fotos** (não 9); **nomes definitivos dos 25 parceiros**;
+> página Contato **sem título e sem ícones sociais no desktop** (aparecem no mobile);
+> "coquetéis" corrigido no Buffet; ordem mobile do rodapé (formulário antes dos endereços).
 `**negrito**` e `*itálico*` indicam ênfase usada no design. Trechos marcados `TODO(conteúdo)` são provisórios por
 decisão da cliente e devem ser mantidos como estão.
 
@@ -10,6 +16,7 @@ decisão da cliente e devem ser mantidos como estão.
 
 ### Navbar (fundo laranja, sticky)
 Logo branco "bandejão" à esquerda · Links: **Home** (`/`) · **Serviços** (`/services`) · **Contato** (`/contact`) · **Quem Somos** (`/about`)
+No mobile os links ficam num menu hambúrguer (o frame "Android" mostra os links na barra, mas ficariam pequenos demais).
 
 ### Rodapé / Bloco de contato (fundo escuro) — `id="orcamento"`
 Coluna esquerda:
@@ -24,7 +31,10 @@ Coluna direita — formulário "Solicite um orçamento":
 - Botão: **ENVIAR**
 
 Abaixo do bloco, centralizado, texto pequeno: "Bandejão Refeições".
-(O layout atual tem a linha "Produzido por Aline y Ulian" — manter discreta abaixo, sem link para heroui.com.)
+Logo abaixo, em letra menor e discreta, sem link: "Produzido por Aline y Ulian" (fora do Figma, a pedido da cliente).
+
+Mobile (frames "Android"): **formulário primeiro** (com o título "Solicite um orçamento" visível), depois logo,
+endereços e ícones sociais.
 
 ---
 
@@ -38,7 +48,8 @@ Foto existente: `public/assets/images/background_placeholder1.png` (foto pura, p
 ### 2. Nossos Serviços
 Título: "Nossos" / "Serviços"
 Texto: "Servimos refeições saborosas há mais de **30 anos**. clique na imagem para saber mais."
-Carrossel com setas laranja ◀ ▶, 3 cards visíveis (fotos com cantos arredondados), 5 itens no total:
+Carrossel com setas laranja ◀ ▶, 3 cards visíveis (fotos com cantos arredondados), 5 itens no total.
+No mobile cada card mostra o nome do serviço sobre um degradê laranja (Figma "Carrossel Mobile"); 2 cards visíveis.
 | Item | Link |
 |---|---|
 | Refeições para Empresas (buffet com massas) | `/services#empresas` |
@@ -90,8 +101,10 @@ Texto:
 
 ### 7. Galeria dos parceiros
 Título laranja alinhado à direita: "Galeria dos parceiros"
-Grade em mosaico com 9 fotos (festival de Ano Novo com doces; prato sendo servido; cubas de buffet; balcão;
-buffet decorado de carnaval; cubas variadas; refeitório com balões laranja Bandejão…).
+Grade em mosaico com **8 fotos** (o Figma tem 8; uma 9ª posição existe oculta no arquivo e não é usada), nesta ordem:
+1. Mesa decorada de Ano Novo · 2. Prato sendo servido no buffet · 3. Cubas de buffet · 4. Balcão de buffet ·
+5. Funcionário servindo no balcão · 6. Buffet decorado de Carnaval · 7. Cubas variadas · 8. Refeitório com balões laranja Bandejão.
+O mosaico do mobile tem outro arranjo (Figma 387:582), com as mesmas 8 fotos.
 Fotos individuais do Figma → `public/assets/images/gallery/`. Dados em `content/gallery.ts`.
 
 ### 8. Banner de delivery
@@ -103,12 +116,14 @@ Botão laranja (pílula): "conheça o nosso **delivery**" → `/services#deliver
 
 ### 9. Nossos parceiros
 Título centralizado: "Nossos parceiros"
-Grade 5 × 5 de logos (exportar do Figma → `public/assets/partners/`; nomes conferir no Figma):
-Mercado Livre · Freedom · FURG · Savarauto · Olé · Guanabara · Tanac · ACPO · Colégio Gonzaga · Zimmer ·
-Planfer · Hospital Monporto · Polimix Energia · Ser e Aprender · Frigorífico (Klug?) · Boreal ·
-Irmãos Jouglard · Peil · Leal Santos · Roloff · UPA 24h · MAC · São Bento · Hospital (nome a conferir) ·
-último logo (nome a conferir)
-Cada logo com `alt` = nome do parceiro.
+Grade 5 × 5 de logos (5 colunas também no mobile, como no Figma), exportados para `public/assets/partners/`.
+Nomes conferidos nos próprios logos do Figma, na ordem da grade:
+1. Mercado Livre · 2. Freedom · 3. FURG — Universidade Federal do Rio Grande · 4. Savarauto · 5. Olé
+6. Supermercado Guanabara · 7. Tanac · 8. ACPO · 9. Colégio Gonzaga · 10. Zimmer
+11. Planfer · 12. Hospital Monporto · 13. Polimix Energia · 14. Ser & Aprender · 15. Frigorífico Klug
+16. Boreal Sistemas de Limpeza · 17. Irmãos Jouglard · 18. Peil · 19. Leal Santos · 20. Roloff
+21. UPA 24h · 22. MAC Engenharia · 23. São Bento · 24. Hospital Dr. Ernesto Maurício Arndt · 25. Mercotainer
+Cada logo com `alt` = nome do parceiro. Dados em `content/partners.ts`.
 
 ### 10. Avaliações
 Título centralizado: "Avaliações"
@@ -131,7 +146,9 @@ corpo em parágrafos. Layout alterna conforme abaixo.
 
 ### `#empresas` — REFEIÇÕES PARA / EMPRESAS:
 Layout: texto à esquerda + 1 foto à direita (cubas de buffet); abaixo, foto larga (potes de marmita) + foto menor
-(prato servido com bife à milanesa). 3 fotos, cantos arredondados.
+(prato servido com bife à milanesa). 3 fotos; a larga sem cantos arredondados.
+Mobile: texto, foto larga (em 2:1, mais alta que no Figma, a pedido da cliente) e as duas menores lado a lado.
+A foto larga tem baixa resolução no Figma (1083×239) → `TODO(imagem)`.
 Subtítulo: "Alimentação corporativa para **escritórios, fábricas e indústrias.**"
 > Oferecemos alimentação corporativa completa, com refeições balanceadas, saborosas e preparadas com ingredientes frescos e selecionados. Nosso serviço é pensado para atender empresas de todos os portes, com soluções personalizadas que se adaptam à rotina e estrutura de cada cliente. As entregas são feitas com pontualidade, seja em marmitas individuais, buffets ou refeições empratadas. Garantimos segurança alimentar, praticidade e bem-estar aos colaboradores — contribuindo diretamente para um ambiente de trabalho mais saudável e produtivo.
 
@@ -147,7 +164,7 @@ Layout: foto à esquerda (potes com arroz, linguiça e croquete) + texto à dire
 Subtítulo: "Opção prática para refeições **individuais e coletivas**."
 > Para quem busca praticidade no dia a dia, nosso serviço de delivery de marmitas é a solução ideal. Atendemos tanto empresas quanto consumidores finais, com refeições prontas, equilibradas e entregues no ponto certo. As entregas são feitas por nossa equipe própria ou via iFood, sempre com embalagens seguras que mantêm a temperatura e a qualidade dos alimentos. Perfeito para quem deseja se alimentar bem, com comodidade, sem abrir mão do sabor e da nutrição.
 
-(Opcional, se houver espaço no design: link "Peça pelo iFood" → `TODO(link)`.)
+(O Figma não tem o link "Peça pelo iFood"; o endereço fica reservado em `config/site.ts` → `TODO(link)`.)
 
 ### `#cantinas` — CANTINAS / ESCOLARES:
 Layout: texto à esquerda + 2 fotos verticais arredondadas à direita (bandeja com feijão; marmitas com massa e carne).
@@ -158,6 +175,9 @@ Subtítulo: "Alimentação saudável e saborosa para **instituições de ensino.
 Layout: foto arredondada à esquerda (rechauds de buffet) + texto à direita.
 Subtítulo — `TODO(conteúdo)` (repetido de Empresas, manter): "Alimentação corporativa para **escritórios, fábricas e indústrias.**"
 > Para confraternizações, reuniões, aniversários ou eventos empresariais, o Bandejão oferece um serviço de buffet completo e sob medida. Trabalhamos com cardápios variados, que vão de coffee breaks e coquetéis a refeições completas, servidas em formato buffet self-service. Tudo com qualidade, pontualidade e alto padrão de higiene, para que seu evento seja uma experiência gastronômica rica em sabor.
+
+(No Figma está "coqueteis", sem acento; no site foi corrigido para "coquetéis" com aprovação da cliente.)
+No mobile o Figma mostra uma 2ª foto ao lado (buffet montado com o letreiro Bandejão ao fundo), usada só no mobile.
 
 Rodapé global.
 
@@ -198,11 +218,11 @@ Subtítulo: "**Nossa Filosofia**"
 >
 > **Compromisso:** ser um parceiro confiável, que entende as necessidades de cada empresa ou instituição.
 
-(Conferir no Figma a ênfase exata de "Alimentar é cuidar".)
+Ênfase conferida no Figma: "**Alimentar é** ***cuidar***." — "Alimentar é" em negrito e "cuidar" em negrito itálico.
 
 ### Nosso Diferencial (texto à esquerda, fotos à direita: mão com termômetro e prancheta — vertical; concha com molho; mão com luva montando pimentões)
 Subtítulo: "**Nosso Diferencial**"
-Lista com check laranja (✓):
+Lista com check laranja (✓) — no Figma mobile os marcadores das duas listas aparecem trocados; o site usa os do desktop:
 - Mais de 30 anos de atuação no setor de alimentação coletiva
 - Atendimento personalizado com foco em cada cliente
 - Cardápios elaborados por nutricionistas
@@ -224,5 +244,10 @@ Rodapé global.
 ## Contato (`/contact`)
 
 Navbar + bloco escuro de contato ocupando a página (logo + endereços à esquerda, formulário à direita, botão
-ENVIAR centralizado abaixo), seguido de "Bandejão Refeições". No Figma desta página o bloco **não** tem o rótulo
-"Solicite um orçamento" nem os ícones sociais — conferir e seguir o Figma. Não duplicar o bloco no rodapé.
+ENVIAR centralizado abaixo), seguido de "Bandejão Refeições". O bloco não se repete no rodapé.
+
+Conferido no Figma:
+- **Desktop** (frame "Contatos"): o bloco **não** tem o rótulo "Solicite um orçamento" visível nem os ícones
+  sociais. (O rótulo continua no código só para leitores de tela.)
+- **Mobile** (frame "Contato Android"): formulário primeiro, **com** o rótulo "Solicite um orçamento", e depois
+  logo, endereços e **ícones sociais**.

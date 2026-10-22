@@ -12,7 +12,13 @@ export type Unidade = {
 
 export const siteConfig = {
   name: "Bandejão Refeições",
-  description: "Servimos refeições saborosas há mais de 30 anos.",
+  description:
+    "Alimentação coletiva em Pelotas e Rio Grande/RS há mais de 30 anos: refeições para empresas, hospitais, cantinas escolares, delivery de marmitas e buffet para eventos.",
+  // Domínio de produção, sem barra no final (usado em og:url, og:image e canonical).
+  // TODO(link): definir NEXT_PUBLIC_SITE_URL quando o domínio for registrado (ver .env.example)
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
+  // Imagem de compartilhamento (1200×630), gerada a partir da foto e do logo do hero
+  ogImage: "/assets/brand/og-image.jpg",
   navItems: [
     { label: "Home", href: "/" },
     { label: "Serviços", href: "/services" },

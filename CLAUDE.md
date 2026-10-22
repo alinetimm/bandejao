@@ -4,7 +4,7 @@ Site institucional da **Bandejão Refeições** (alimentação coletiva, Pelotas
 Escopo deste trabalho: **front-end completo e navegável**, fiel ao Figma, com **ganchos prontos para o back-end**
 (que será feito por outro programador). Não implementar back-end real.
 
-- Figma (fonte da verdade para layout, cores, espaçamentos e assets): `FIGMA_URL_AQUI`  ← Aline: cole o link do arquivo
+- Figma (fonte da verdade para layout, cores, espaçamentos e assets): `https://www.figma.com/design/bMnVEC9ThQfZwxNVh8iSi2/Site-Bandej%C3%A3o?node-id=0-1&t=dUj3nsajznGCpFtJ-1`  ← Aline: cole o link do arquivo
 - Conteúdo textual de todas as páginas: `docs/CONTEUDO.md` (transcrito do Figma; se divergir, o Figma vence)
 - Idioma do site e dos comentários: **português (pt-BR)**
 
@@ -65,7 +65,7 @@ Confirmar os valores com `get_variable_defs` / inspeção do Figma e ajustar aqu
 | `brand` | `#F66922` | navbar, títulos em laranja, botões, ícones dos diferenciais |
 | `ink` | `#1E1E1E` | títulos em preto, texto forte |
 | `body` | `#4A4A4A` | texto corrido |
-| `surface-dark` | `#2D2D2F` | rodapé / bloco de contato, faixa do delivery (`#1E1E1E`) |
+| `surface-dark` | `#323334` (Figma) | rodapé / bloco de contato; faixa inferior e faixa do delivery usam `ink` (`#1E1E1E`) |
 | `white` | `#FFFFFF` | fundo das páginas |
 
 - No `tailwind.config.js`: **remover** `orange: "#FFC6B3"` (sobrescreve a paleta laranja inteira do Tailwind)
