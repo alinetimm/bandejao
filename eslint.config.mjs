@@ -36,6 +36,7 @@ export default defineConfig([globalIgnores([
     "**/coverage",
     "**/.next",
     "**/build",
+    "legacy/**",
     "!**/.commitlintrc.cjs",
     "!**/.lintstagedrc.cjs",
     "!**/jest.config.js",

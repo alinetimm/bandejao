@@ -1,5 +1,5 @@
 {
-  "name": "next-pages-template",
+  "name": "bandejao-site",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,26 +9,20 @@
     "lint": "eslint --fix"
   },
   "dependencies": {
-    "@heroui/button": "2.2.20",
-    "@heroui/code": "2.2.15",
-    "@heroui/image": "^2.2.12",
-    "@heroui/input": "2.4.20",
-    "@heroui/kbd": "2.2.16",
     "@heroui/link": "2.2.17",
-    "@heroui/listbox": "2.3.19",
     "@heroui/navbar": "2.2.18",
-    "@heroui/snippet": "2.2.21",
-    "@heroui/switch": "2.2.18",
     "@heroui/system": "2.4.16",
     "@heroui/theme": "2.4.16",
-    "@react-aria/visually-hidden": "3.8.23",
+    "@hookform/resolvers": "^5.9.2",
     "clsx": "2.1.1",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "11.13.1",
     "intl-messageformat": "10.7.16",
     "next": "15.3.1",
-    "next-themes": "0.4.6",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "react-hook-form": "^7.90.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@eslint/compat": "1.2.8",
@@ -52,7 +46,6 @@
     "globals": "16.0.0",
     "postcss": "8.5.3",
     "prettier": "3.5.3",
-    "tailwind-variants": "0.3.0",
     "tailwindcss": "3.4.16",
     "typescript": "5.6.3"
   }
