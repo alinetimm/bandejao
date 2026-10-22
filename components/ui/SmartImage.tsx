@@ -1,4 +1,5 @@
 import type { ContentImage } from "@/types";
+import type { CSSProperties } from "react";
 
 import clsx from "clsx";
 import Image from "next/image";
@@ -9,6 +10,8 @@ type SmartImageProps = {
   image: ContentImage;
   // Proporção do Figma, ex.: "4/3", "368/261". Sem aspect, o pai define a altura.
   aspect?: string;
+  // Proporção abaixo de 1024px (frames "Android" do Figma), quando difere do desktop
+  aspectMobile?: string;
   // Cantos de 25px usados nas fotos do Figma
   rounded?: boolean;
   // Sombra interna das fotos arredondadas do Figma
@@ -25,6 +28,7 @@ type SmartImageProps = {
 export const SmartImage = ({
   image,
   aspect,
+  aspectMobile,
   rounded = false,
   innerShadow = false,
   focus,
@@ -37,9 +41,19 @@ export const SmartImage = ({
     className={clsx(
       "relative w-full overflow-hidden",
       rounded && "rounded-[25px]",
+      aspectMobile && "aspect-[var(--ar-m)] lg:aspect-[var(--ar)]",
       className,
     )}
-    style={aspect ? { aspectRatio: aspect } : undefined}
+    style={
+      aspectMobile
+        ? ({
+            "--ar": aspect ?? aspectMobile,
+            "--ar-m": aspectMobile,
+          } as CSSProperties)
+        : aspect
+          ? { aspectRatio: aspect }
+          : undefined
+    }
   >
     {image.src ? (
       <Image

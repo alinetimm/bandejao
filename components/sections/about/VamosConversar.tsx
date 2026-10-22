@@ -10,7 +10,7 @@ export const VamosConversar = () => (
       first={vamosConversar.titulo}
       variant="single"
     />
-    <p className="mt-4 text-lg font-medium tracking-[-0.01em] text-body">
+    <p className="mt-4 text-[15px] md:text-base lg:text-lg font-medium tracking-[-0.01em] text-body">
       {vamosConversar.texto}
     </p>
     <Button

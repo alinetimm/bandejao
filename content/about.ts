@@ -4,6 +4,7 @@ import type { ContentImage, RichText } from "@/types";
 
 export type FotoSobre = ContentImage & {
   aspect: string; // largura/altura no Figma
+  aspectMobile?: string; // proporção no frame "Android", quando difere
   focus?: string; // object-position do recorte
 };
 
@@ -59,6 +60,7 @@ export const historia = {
       src: "/assets/images/services/delivery.jpg",
       alt: "Potes de marmita com arroz, linguiça e croquete",
       aspect: "497/323",
+      aspectMobile: "1/1",
     },
     foto(
       "historia-frango.jpg",
@@ -66,7 +68,7 @@ export const historia = {
       "497/243",
       "center 60%",
     ),
-  ] satisfies FotoSobre[],
+  ].map((f) => ({ ...f, aspectMobile: "1/1" })) satisfies FotoSobre[],
 };
 
 export const oQueFazemos = {

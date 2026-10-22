@@ -18,3 +18,10 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Foco visível padrão (teclado): laranja contrasta com o fundo branco e com o escuro.
+   Componentes sobre fundo laranja (navbar) usam anel branco próprio. */
+:focus-visible {
+  outline: 3px solid #f66922;
+  outline-offset: 2px;
+}

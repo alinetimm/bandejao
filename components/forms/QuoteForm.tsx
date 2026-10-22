@@ -22,12 +22,13 @@ const campos = [
 ] as const;
 
 const inputBase =
-  "w-full bg-white px-3 text-base text-ink outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark";
+  "w-full bg-white px-3 text-base text-ink outline-none placeholder:text-gray-500 focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark";
 
 // Formulário "Solicite um orçamento" (Figma 453:811). Envia via submitQuote — ver lib/api/quote.ts.
 type QuoteFormProps = {
   className?: string;
-  // Na página Contato o Figma não mostra o título: fica só para leitores de tela
+  // Na página Contato o Figma desktop não mostra o título (fica só para leitores de tela);
+  // no mobile (Figma 405:226) ele aparece.
   hideTitle?: boolean;
 };
 
@@ -62,8 +63,6 @@ export const QuoteForm = ({ className, hideTitle = false }: QuoteFormProps) => {
     }
   };
 
-  const telefone = register("telefone");
-
   return (
     <form
       noValidate
@@ -73,25 +72,25 @@ export const QuoteForm = ({ className, hideTitle = false }: QuoteFormProps) => {
     >
       <h2
         className={clsx(
-          "mb-4 text-xl leading-[22px] text-white/50",
-          hideTitle && "sr-only",
+          "mb-4 text-[15px] leading-[22px] text-white md:text-lg lg:text-xl lg:text-white/60",
+          hideTitle && "lg:sr-only",
         )}
         id="orcamento-titulo"
       >
         Solicite um orçamento
       </h2>
 
-      <div className="grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-3 lg:gap-y-4">
         {campos.map((campo) => {
           const erro = errors[campo.name]?.message;
           const id = `orcamento-${campo.name}`;
-          const reg =
-            campo.name === "telefone" ? telefone : register(campo.name);
+          // Registrados na ordem visual: o foco do primeiro erro segue essa ordem
+          const reg = register(campo.name);
 
           return (
             <div key={campo.name}>
               <label
-                className="mb-[6px] block text-lg font-medium leading-[27px] tracking-[-0.01em] text-white"
+                className="mb-[6px] block text-[15px] md:text-base lg:text-lg font-medium leading-[1.5] lg:leading-[27px] tracking-[-0.01em] text-white"
                 htmlFor={id}
               >
                 {campo.label}
@@ -100,8 +99,9 @@ export const QuoteForm = ({ className, hideTitle = false }: QuoteFormProps) => {
                 {...reg}
                 aria-describedby={erro ? `${id}-erro` : undefined}
                 aria-invalid={!!erro}
+                aria-required="true"
                 autoComplete={campo.autoComplete}
-                className={clsx(inputBase, "h-12")}
+                className={clsx(inputBase, "h-11 lg:h-12")}
                 id={id}
                 inputMode={campo.name === "telefone" ? "tel" : undefined}
                 placeholder={
@@ -112,7 +112,7 @@ export const QuoteForm = ({ className, hideTitle = false }: QuoteFormProps) => {
                   campo.name === "telefone"
                     ? (e) => {
                         e.target.value = maskTelefone(e.target.value);
-                        telefone.onChange(e);
+                        reg.onChange(e);
                       }
                     : reg.onChange
                 }
@@ -128,7 +128,7 @@ export const QuoteForm = ({ className, hideTitle = false }: QuoteFormProps) => {
 
         <div className="sm:col-span-3">
           <label
-            className="mb-[6px] block text-lg font-medium leading-[27px] tracking-[-0.01em] text-white"
+            className="mb-[6px] block text-[15px] md:text-base lg:text-lg font-medium leading-[1.5] lg:leading-[27px] tracking-[-0.01em] text-white"
             htmlFor="orcamento-descricao"
           >
             Descrição
@@ -139,7 +139,11 @@ export const QuoteForm = ({ className, hideTitle = false }: QuoteFormProps) => {
               errors.descricao ? "orcamento-descricao-erro" : undefined
             }
             aria-invalid={!!errors.descricao}
-            className={clsx(inputBase, "h-[152px] resize-none py-2")}
+            aria-required="true"
+            className={clsx(
+              inputBase,
+              "h-[120px] resize-none py-2 lg:h-[152px]",
+            )}
             id="orcamento-descricao"
           />
           {errors.descricao && (

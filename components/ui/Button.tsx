@@ -4,14 +4,15 @@ import clsx from "clsx";
 import NextLink from "next/link";
 
 const comum =
-  "inline-flex items-center justify-center gap-2 rounded-[15px] bg-brand text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-[15px] bg-brand text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60";
 
 const variantes = {
-  // Botão "ENVIAR" do Figma (72:163): 38px de altura, Poppins ExtraBold 18px, caixa alta
+  // Botão "ENVIAR" do Figma (72:163): 38px de altura, Poppins ExtraBold caixa alta.
+  // 19px (em vez de 18) para contar como "texto grande" no contraste branco × laranja.
   primary:
-    "h-[38px] min-w-[143px] px-6 text-lg font-extrabold uppercase tracking-[-0.01em]",
+    "h-[38px] min-w-[143px] px-6 text-[19px] font-extrabold uppercase tracking-[-0.01em]",
   // Pílula "conheça o nosso delivery" do Figma (208:370): 32px, Poppins Medium 21px
-  pill: "h-8 px-5 text-lg font-medium tracking-[-0.01em] md:text-[21px]",
+  pill: "min-h-9 px-5 py-1 text-[15px] font-medium tracking-[-0.01em] md:text-lg lg:min-h-8 lg:text-[21px]",
 };
 
 type ButtonProps = {

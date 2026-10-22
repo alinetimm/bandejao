@@ -12,6 +12,10 @@ export type ServicoId =
 export type FotoServico = ContentImage & {
   // Proporção da foto no Figma (largura/altura)
   aspect: string;
+  // Proporção abaixo de 1024px (frames "Android" do Figma), quando difere
+  aspectMobile?: string;
+  // Foto que só aparece no layout mobile do Figma
+  somenteMobile?: boolean;
   // object-position do recorte do Figma
   focus?: string;
 };
@@ -52,17 +56,23 @@ export const servicosBlocos: ServicoBloco[] = [
         src: "/assets/images/services/empresas-cubas.jpg",
         alt: "Cubas de buffet com massa, carnes e legumes",
         aspect: "458/210",
+        aspectMobile: "295/133",
       },
       {
+        // TODO(imagem): a foto do Figma tem só 1083×239px (fica suave no desktop e muito
+        // recortada no mobile). Trocar por uma versão em alta resolução, de preferência ≥ 1600px.
         src: "/assets/images/services/empresas-marmitas.webp",
         alt: "Potes de marmita com arroz e acompanhamentos enfileirados",
         aspect: "705/210",
+        // Mais alta que no Figma mobile (600×172) para não ficar uma faixa fina
+        aspectMobile: "2/1",
         focus: "left center",
       },
       {
         src: "/assets/images/services/empresas-prato.webp",
         alt: "Mão com luva segurando prato com arroz e bife à milanesa",
         aspect: "458/210",
+        aspectMobile: "289/134",
         focus: "center 60%",
       },
     ],
@@ -115,6 +125,7 @@ export const servicosBlocos: ServicoBloco[] = [
         src: "/assets/images/services/delivery-potes.jpg",
         alt: "Potes com arroz, linguiça, croquete e salada",
         aspect: "580/466",
+        aspectMobile: "600/464",
         focus: "90% 100%",
       },
     ],
@@ -156,7 +167,7 @@ export const servicosBlocos: ServicoBloco[] = [
       { forte: "escritórios, fábricas e indústrias." },
     ],
     paragrafos: [
-      "Para confraternizações, reuniões, aniversários ou eventos empresariais, o Bandejão oferece um serviço de buffet completo e sob medida. Trabalhamos com cardápios variados, que vão de coffee breaks e coqueteis a refeições completas, servidas em formato buffet self-service. Tudo com qualidade, pontualidade e alto padrão de higiene, para que seu evento seja uma experiência gastronômica rica em sabor.",
+      "Para confraternizações, reuniões, aniversários ou eventos empresariais, o Bandejão oferece um serviço de buffet completo e sob medida. Trabalhamos com cardápios variados, que vão de coffee breaks e coquetéis a refeições completas, servidas em formato buffet self-service. Tudo com qualidade, pontualidade e alto padrão de higiene, para que seu evento seja uma experiência gastronômica rica em sabor.",
     ],
     layout: "foto-texto",
     fotosArredondadas: true,
@@ -165,7 +176,14 @@ export const servicosBlocos: ServicoBloco[] = [
         src: "/assets/images/services/buffet-rechauds.webp",
         alt: "Rechauds de buffet com carnes e acompanhamentos em evento",
         aspect: "459/427",
+        aspectMobile: "296/424",
         focus: "center 70%",
+      },
+      {
+        src: "/assets/images/services/buffet-evento.jpg",
+        alt: "Buffet montado em evento, com o letreiro Bandejão ao fundo",
+        aspect: "296/424",
+        somenteMobile: true,
       },
     ],
     larguraTexto: 615,
