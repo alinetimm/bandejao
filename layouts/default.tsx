@@ -1,5 +1,3 @@
-import { Link } from "@heroui/link";
-
 import { Head } from "./head";
 
 import { Navbar } from "@/components/navbar";
@@ -14,16 +12,10 @@ export default function DefaultLayout({
       <Head />
       <Navbar />
       <main className="mx-auto flex-grow ">{children}</main>
-      <footer className="w-full flex items-center justify-center py-3">
-        <Link
-          isExternal
-          className="flex items-center gap-1 text-current"
-          href="https://www.heroui.com"
-          title="heroui.com homepage"
-        >
-          <span className="text-default-600">Produzido por</span>
-          <p className="text-primary">Aline y Ulian</p>
-        </Link>
+      {/* Rodapé provisório — ContactBlock/Footer na Fase 1 */}
+      <footer className="w-full flex items-center justify-center gap-1 py-3 text-sm">
+        <span className="text-body">Produzido por</span>
+        <span className="text-primary">Aline y Ulian</span>
       </footer>
     </div>
   );

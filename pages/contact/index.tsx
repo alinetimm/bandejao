@@ -1,13 +1,11 @@
-import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 
+// Página provisória — conteúdo real em fases seguintes (ver CLAUDE.md §6).
 export default function ContactPage() {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className={title()}>contact</h1>
-        </div>
+        <h1 className="text-4xl font-bold text-ink">Contato</h1>
       </section>
     </DefaultLayout>
   );

@@ -1,5 +1,8 @@
 import { heroui } from "@heroui/theme";
 
+// Tokens de cor do Figma (ver CLAUDE.md §3) — confirmar valores com get_variable_defs na Fase 1.
+const brand = "#F66922";
+
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: [
@@ -15,15 +18,28 @@ const config = {
         mono: ["var(--font-mono)"],
       },
       colors: {
-        orange: "#FFC6B3",
+        brand,
+        ink: "#1E1E1E",
+        body: "#4A4A4A",
+        "surface-dark": "#2D2D2F",
         primary: {
-          DEFAULT: "#F66922",
+          DEFAULT: brand,
         },
       },
     },
   },
-  darkMode: "class",
-  plugins: [heroui()],
+  plugins: [
+    heroui({
+      defaultTheme: "light",
+      themes: {
+        light: {
+          colors: {
+            primary: { DEFAULT: brand, foreground: "#FFFFFF" },
+          },
+        },
+      },
+    }),
+  ],
 };
 
 export default config;
