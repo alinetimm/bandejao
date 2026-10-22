@@ -1,0 +1,10 @@
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="editor_choice">
+<mask id="mask0_0_39" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="56" height="56">
+<rect id="Bounding box" width="56" height="56" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_0_39)">
+<path id="editor_choice_2" d="M14 53.6667V34.475L6.41667 22.1667L17.2083 4.66667H38.7917L49.5833 22.1667L42 34.475V53.6667L28 49L14 53.6667ZM18.6667 47.1917L28 44.1L37.3333 47.1917V39.6667H18.6667V47.1917ZM19.8333 9.33333L11.9 22.1667L19.8333 35H36.1667L44.1 22.1667L36.1667 9.33333H19.8333ZM25.55 31.675L17.2667 23.45L20.5917 20.125L25.55 25.0833L35.4083 15.1667L38.7333 18.4333L25.55 31.675Z" fill="white"/>
+</g>
+</g>
+</svg>

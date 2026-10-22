@@ -33,11 +33,12 @@ export const SectionTitle = ({
   align = "left",
   className,
 }: SectionTitleProps) => {
+  // Tamanhos do Figma: single 49px/52px, stacked 55px/55px, ExtraBold, tracking -1%
   if (variant === "single") {
     return (
       <Tag
         className={clsx(
-          "text-3xl font-bold leading-tight md:text-[40px]",
+          "text-[34px] font-extrabold leading-tight tracking-[-0.01em] md:text-[49px] md:leading-[52px]",
           colorClass[color],
           alignClass[align],
           className,
@@ -51,10 +52,10 @@ export const SectionTitle = ({
   return (
     <Tag
       className={clsx(
-        "flex flex-col leading-none",
+        "flex flex-col tracking-[-0.01em]",
         variant === "uppercase"
-          ? "text-3xl font-black uppercase md:text-5xl"
-          : "text-4xl font-extrabold md:text-[56px]",
+          ? "text-3xl font-black uppercase leading-none md:text-5xl"
+          : "text-[40px] font-extrabold leading-[1] md:text-[55px] md:leading-[55px]",
         alignClass[align],
         className,
       )}

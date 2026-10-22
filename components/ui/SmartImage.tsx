@@ -9,7 +9,12 @@ type SmartImageProps = {
   image: ContentImage;
   // Proporção do Figma, ex.: "4/3", "368/261". Sem aspect, o pai define a altura.
   aspect?: string;
+  // Cantos de 25px usados nas fotos do Figma
   rounded?: boolean;
+  // Sombra interna das fotos arredondadas do Figma
+  innerShadow?: boolean;
+  // object-position do recorte, ex.: "center 40%"
+  focus?: string;
   priority?: boolean;
   sizes?: string;
   className?: string;
@@ -21,6 +26,8 @@ export const SmartImage = ({
   image,
   aspect,
   rounded = false,
+  innerShadow = false,
+  focus,
   priority = false,
   sizes = "100vw",
   className,
@@ -29,7 +36,7 @@ export const SmartImage = ({
   <div
     className={clsx(
       "relative w-full overflow-hidden",
-      rounded && "rounded-[20px]",
+      rounded && "rounded-[25px]",
       className,
     )}
     style={aspect ? { aspectRatio: aspect } : undefined}
@@ -42,13 +49,20 @@ export const SmartImage = ({
         priority={priority}
         sizes={sizes}
         src={image.src}
+        style={focus ? { objectPosition: focus } : undefined}
       />
     ) : (
       <ImagePlaceholder
         alt={image.alt}
         aspect={aspect}
-        className={clsx(rounded && "rounded-[20px]")}
+        className={clsx(rounded && "rounded-[25px]")}
         hint={image.hint}
+      />
+    )}
+    {innerShadow && (
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0px_4px_8px_8px_rgba(0,0,0,0.25)]"
       />
     )}
   </div>

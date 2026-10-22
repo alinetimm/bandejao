@@ -1,0 +1,10 @@
+<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="dashboard_customize">
+<mask id="mask0_0_52" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="54" height="54">
+<rect id="Bounding box" width="54" height="54" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_0_52)">
+<path id="dashboard_customize_2" d="M6.75 6.75H24.75V24.75H6.75V6.75ZM29.25 6.75H47.25V24.75H29.25V6.75ZM6.75 29.25H24.75V47.25H6.75V29.25ZM36 29.25H40.5V36H47.25V40.5H40.5V47.25H36V40.5H29.25V36H36V29.25ZM33.75 11.25V20.25H42.75V11.25H33.75ZM11.25 11.25V20.25H20.25V11.25H11.25ZM11.25 33.75V42.75H20.25V33.75H11.25Z" fill="white"/>
+</g>
+</g>
+</svg>

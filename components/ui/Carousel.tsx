@@ -8,30 +8,29 @@ import { useCallback } from "react";
 type CarouselProps = {
   children: ReactNode[];
   ariaLabel: string;
-  // Largura de cada slide; padrão: 1 no mobile, 2 no tablet, 3 no desktop (CLAUDE.md §7)
+  // Largura e espaçamento de cada slide (o espaçamento é o padding-left do slide
+  // e precisa do mesmo valor negativo em trackClassName).
+  // Padrão: 1 no mobile, 2 no tablet, 3 no desktop (CLAUDE.md §7)
   slideClassName?: string;
+  trackClassName?: string;
+  // simples: triângulo de "Nossos Serviços" · sombra: com sombra, de "Avaliações"
+  seta?: "simples" | "sombra";
   loop?: boolean;
   className?: string;
 };
 
-// Seta do Figma (instâncias "direita"/"esquerda"): mesmo triângulo, rotacionado.
-const Seta = ({ direcao }: { direcao: "esquerda" | "direita" }) => (
-  <Image
-    alt=""
-    className={clsx(
-      "drop-shadow-[0_2px_2px_rgba(74,74,74,0.35)]",
-      direcao === "direita" ? "rotate-90" : "-rotate-90",
-    )}
-    height={22}
-    src="/assets/icons/seta.svg"
-    width={22}
-  />
-);
+// Setas exportadas do Figma (apontam para a direita; a esquerda é a mesma, girada).
+const setas = {
+  simples: { src: "/assets/icons/seta.svg", width: 29, height: 25 },
+  sombra: { src: "/assets/icons/seta-sombra.svg", width: 37, height: 31 },
+};
 
 export const Carousel = ({
   children,
   ariaLabel,
-  slideClassName = "basis-full sm:basis-1/2 lg:basis-1/3",
+  slideClassName = "basis-full pl-4 sm:basis-1/2 lg:basis-1/3",
+  trackClassName = "-ml-4",
+  seta = "simples",
   loop = true,
   className,
 }: CarouselProps) => {
@@ -41,13 +40,14 @@ export const Carousel = ({
   const proximo = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   const botao =
-    "flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand";
+    "flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand";
+  const icone = setas[seta];
 
   return (
     <section
       aria-label={ariaLabel}
       aria-roledescription="carrossel"
-      className={clsx("flex items-center gap-2", className)}
+      className={clsx("flex items-center gap-1 md:gap-2", className)}
     >
       <button
         aria-label="Anterior"
@@ -55,17 +55,17 @@ export const Carousel = ({
         type="button"
         onClick={anterior}
       >
-        <Seta direcao="esquerda" />
+        <Image alt="" className="rotate-180" {...icone} />
       </button>
 
       <div ref={emblaRef} className="min-w-0 flex-1 overflow-hidden">
-        <div className="-ml-4 flex touch-pan-y">
+        <div className={clsx("flex touch-pan-y", trackClassName)}>
           {children.map((child, i) => (
             <div
               key={i}
               aria-label={`${i + 1} de ${children.length}`}
               aria-roledescription="slide"
-              className={clsx("min-w-0 shrink-0 grow-0 pl-4", slideClassName)}
+              className={clsx("min-w-0 shrink-0 grow-0", slideClassName)}
               role="group"
             >
               {child}
@@ -80,7 +80,7 @@ export const Carousel = ({
         type="button"
         onClick={proximo}
       >
-        <Seta direcao="direita" />
+        <Image alt="" {...icone} />
       </button>
     </section>
   );
