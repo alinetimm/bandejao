@@ -25,7 +25,13 @@ const inputBase =
   "w-full bg-white px-3 text-base text-ink outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark";
 
 // Formulário "Solicite um orçamento" (Figma 453:811). Envia via submitQuote — ver lib/api/quote.ts.
-export const QuoteForm = ({ className }: { className?: string }) => {
+type QuoteFormProps = {
+  className?: string;
+  // Na página Contato o Figma não mostra o título: fica só para leitores de tela
+  hideTitle?: boolean;
+};
+
+export const QuoteForm = ({ className, hideTitle = false }: QuoteFormProps) => {
   const [status, setStatus] = useState<Status>({ tipo: "ocioso" });
   const {
     register,
@@ -66,7 +72,10 @@ export const QuoteForm = ({ className }: { className?: string }) => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <h2
-        className="mb-4 text-xl leading-[22px] text-white/50"
+        className={clsx(
+          "mb-4 text-xl leading-[22px] text-white/50",
+          hideTitle && "sr-only",
+        )}
         id="orcamento-titulo"
       >
         Solicite um orçamento

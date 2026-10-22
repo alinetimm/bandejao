@@ -12,9 +12,11 @@ type ContactBlockProps = {
 };
 
 // Logo + endereços das unidades + formulário de orçamento. Âncora: #orcamento
+// Na variante "page" (Figma 453:814/453:801) o bloco é mais alto e centralizado,
+// sem o título "Solicite um orçamento" visível e sem os ícones sociais.
 export const ContactBlock = ({
   variant = "footer",
-  showSocial = true,
+  showSocial = variant === "footer",
 }: ContactBlockProps) => (
   <section
     aria-label="Contato e orçamento"
@@ -23,12 +25,24 @@ export const ContactBlock = ({
       "scroll-mt-[var(--header-h)] bg-surface-dark text-white",
       variant === "footer"
         ? "pb-16 pt-11"
-        : "py-16 lg:pb-[150px] lg:pt-[157px]",
+        : "py-16 lg:pb-[169px] lg:pt-[157px]",
     )}
     id="orcamento"
   >
-    <div className="mx-auto flex max-w-[1192px] flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:gap-0 xl:px-0">
-      <div className="lg:w-[465px] lg:shrink-0 lg:pt-[7px]">
+    <div
+      className={clsx(
+        "mx-auto flex flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:gap-0 xl:px-0",
+        variant === "footer" ? "max-w-[1192px]" : "max-w-[1125px]",
+      )}
+    >
+      <div
+        className={clsx(
+          "lg:shrink-0",
+          variant === "footer"
+            ? "lg:w-[465px] lg:pt-[7px]"
+            : "lg:w-[517px] lg:pt-[9px]",
+        )}
+      >
         <Image
           alt={siteConfig.name}
           height={47}
@@ -62,7 +76,7 @@ export const ContactBlock = ({
         {showSocial && <SocialLinks className="mt-5" />}
       </div>
 
-      <QuoteForm className="lg:max-w-[608px]" />
+      <QuoteForm className="lg:max-w-[608px]" hideTitle={variant === "page"} />
     </div>
   </section>
 );

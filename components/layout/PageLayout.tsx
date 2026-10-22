@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import clsx from "clsx";
+
 import { ContactBlock } from "./ContactBlock";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
@@ -11,6 +13,8 @@ type PageLayoutProps = {
   description?: string;
   // Falso na página Contato, que já mostra o bloco em destaque
   showContactBlock?: boolean;
+  // Classes extras do <main> (ex.: fundo escuro na página Contato, que é curta)
+  mainClassName?: string;
 };
 
 export const PageLayout = ({
@@ -18,6 +22,7 @@ export const PageLayout = ({
   title,
   description,
   showContactBlock = true,
+  mainClassName,
 }: PageLayoutProps) => (
   <div className="flex min-h-screen flex-col">
     <SeoHead description={description} title={title} />
@@ -28,7 +33,7 @@ export const PageLayout = ({
       Pular para o conteúdo
     </a>
     <Navbar />
-    <main className="flex-grow" id="conteudo">
+    <main className={clsx("flex-grow", mainClassName)} id="conteudo">
       {children}
     </main>
     {showContactBlock && <ContactBlock />}
