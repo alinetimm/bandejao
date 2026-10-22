@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Altura da navbar sticky (Figma: 82px no desktop) */
+  --header-h: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 82px;
+  }
+}
+
+html {
+  /* Âncoras (#orcamento, /services#empresas…) não ficam escondidas sob a navbar */
+  scroll-padding-top: var(--header-h);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

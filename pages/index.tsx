@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-import DefaultLayout from "@/layouts/default";
+import { PageLayout } from "@/components/layout/PageLayout";
 
 // Home provisória — seções reais na Fase 2 (ver docs/CONTEUDO.md).
 export default function IndexPage() {
   return (
-    <DefaultLayout>
+    <PageLayout>
       <section className="relative h-fit w-full overflow-hidden">
         <Image
           priority
@@ -52,6 +52,6 @@ export default function IndexPage() {
           width={1440}
         />
       </section>
-    </DefaultLayout>
+    </PageLayout>
   );
 }

@@ -1,6 +1,6 @@
 import { heroui } from "@heroui/theme";
 
-// Tokens de cor do Figma (ver CLAUDE.md §3) — confirmar valores com get_variable_defs na Fase 1.
+// Tokens de cor do Figma (ver CLAUDE.md §3). O arquivo não tem variáveis; valores lidos dos estilos.
 const brand = "#F66922";
 
 /** @type {import('tailwindcss').Config} */
@@ -21,7 +21,7 @@ const config = {
         brand,
         ink: "#1E1E1E",
         body: "#4A4A4A",
-        "surface-dark": "#2D2D2F",
+        "surface-dark": "#323334",
         primary: {
           DEFAULT: brand,
         },
