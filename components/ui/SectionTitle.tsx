@@ -54,7 +54,7 @@ export const SectionTitle = ({
       className={clsx(
         "flex flex-col tracking-[-0.01em]",
         variant === "uppercase"
-          ? "text-3xl font-black uppercase leading-none md:text-5xl"
+          ? "text-[30px] font-extrabold uppercase leading-[1.1] md:text-[49px] md:leading-[52px]"
           : "text-[40px] font-extrabold leading-[1] md:text-[55px] md:leading-[55px]",
         alignClass[align],
         className,

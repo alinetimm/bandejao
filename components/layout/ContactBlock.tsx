@@ -19,7 +19,8 @@ export const ContactBlock = ({
   <section
     aria-label="Contato e orçamento"
     className={clsx(
-      "bg-surface-dark text-white",
+      // scroll-margin: o link #orcamento para abaixo da navbar sticky
+      "scroll-mt-[var(--header-h)] bg-surface-dark text-white",
       variant === "footer"
         ? "pb-16 pt-11"
         : "py-16 lg:pb-[150px] lg:pt-[157px]",
