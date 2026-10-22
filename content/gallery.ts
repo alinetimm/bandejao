@@ -28,7 +28,7 @@ export const gallery: GalleryItem[] = [
   {
     id: "cubas-buffet",
     image: {
-      src: "/assets/images/gallery/03-cubas-buffet.jpg",
+      src: "/assets/images/gallery/03-cubas-buffet.webp",
       alt: "Cubas de buffet com saladas e pratos quentes",
     },
   },

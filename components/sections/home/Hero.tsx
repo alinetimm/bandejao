@@ -4,11 +4,13 @@ import { SmartImage } from "@/components/ui/SmartImage";
 import { hero } from "@/content/home";
 
 // Figma 72:82–72:86: foto + camada laranja 61% + logo grande. Fica por baixo da navbar translúcida.
+// A foto ocupa 1809px num quadro de 1440 (sobra ~12,8% de cada lado), escondendo as faixas
+// transparentes das laterais do arquivo.
 export const Hero = () => (
   <section className="relative -mt-[var(--header-h)] h-[440px] overflow-hidden md:h-[600px] lg:h-[737px]">
     <SmartImage
       priority
-      className="!absolute inset-0 h-full"
+      className="!absolute inset-y-0 -left-[12.8%] -right-[12.8%] h-full !w-auto"
       image={hero.image}
       imageClassName="object-bottom"
     />

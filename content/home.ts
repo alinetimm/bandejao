@@ -15,8 +15,10 @@ export const hero = {
     width: 463,
     height: 182,
   },
+  // TODO(imagem): a foto do Figma tem só 1024px de largura (fica suave em telas grandes)
+  // e faixas transparentes nas laterais. Trocar por uma versão em alta resolução (≥ 2560px).
   image: {
-    src: "/assets/images/home/hero.jpg",
+    src: "/assets/images/home/hero.webp",
     alt: "Mãos cortando abobrinha em uma tábua",
   } satisfies ContentImage,
 };
@@ -114,7 +116,7 @@ export const refeicoes = {
       alt: "Mão com luva segurando um croquete aberto",
     },
     {
-      src: "/assets/images/home/refeicoes-marmitas.jpg",
+      src: "/assets/images/home/refeicoes-marmitas.webp",
       alt: "Mãos com luvas montando marmitas",
     },
   ] satisfies ContentImage[],
